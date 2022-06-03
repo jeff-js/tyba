@@ -1,0 +1,20 @@
+version: "3.1"
+
+services:
+  backend-db:
+    build:
+      context: .
+      dockerfile: ./docker/postgres.Dockerfile
+    ports:
+      - "5432:5432"
+    environment:
+      - DB_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    restart: always
+  backend:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    container_name: backend
+    ports:
+        - "3000:3000"
