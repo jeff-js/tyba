@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { RestaurantsModule } from './restaurants/restaurants.module';
+import { ReportsModule } from './reports/reports.module';
 import * as typeOrmConfig from './config/database.config';
 
 @Module({
@@ -16,6 +17,7 @@ import * as typeOrmConfig from './config/database.config';
     TypeOrmModule.forRoot(typeOrmConfig),
     AuthModule,
     RestaurantsModule,
+    ReportsModule,
   ],
   controllers: [AppController],
 })
