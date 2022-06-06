@@ -27,6 +27,9 @@ services:
       - DATABASE_PASSWORD=postgres
       - DATABASE_NAME=postgres
       - DATABASE_PORT=5432
+      - JWT_KEY=XXXXX
+      - JWT_EXPIRES_IN=XX
+      - GOOGLE_API_KEY=AIXXXXX
 
 volumes:
   postgres_data:

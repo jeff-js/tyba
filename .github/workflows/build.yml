@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - master
+name: Build Docker
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build, tag
+        id: build-image
+        env:
+          IMAGE_NAME: tyba-api
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          # Build a docker container
+          docker build -t $IMAGE_NAME:$IMAGE_TAG .
