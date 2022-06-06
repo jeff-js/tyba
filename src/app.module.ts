@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 import * as typeOrmConfig from './config/database.config';
 
 @Module({
@@ -12,6 +13,7 @@ import * as typeOrmConfig from './config/database.config';
       isGlobal: true,
     }),
     TypeOrmModule.forRoot(typeOrmConfig),
+    AuthModule,
   ],
   controllers: [AppController],
 })
