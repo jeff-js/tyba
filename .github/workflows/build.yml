@@ -20,4 +20,4 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Build a docker container
-          docker build -t $IMAGE_NAME:$IMAGE_TAG docker/Dockerfile
+          docker build -t $IMAGE_NAME:$IMAGE_TAG -f docker/Dockerfile .
