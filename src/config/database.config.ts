@@ -16,9 +16,6 @@ const typeOrmConfig: PostgresConnectionOptions = {
   synchronize: false, // process.env.NODE_ENV !== 'production',
   migrationsRun: process.env.NODE_ENV === 'production',
   migrations: [__dirname + '/../migration/*{.ts,.js}'],
-  cli: {
-    migrationsDir: 'src/migration',
-  },
   logging: ['error'],
 };
 

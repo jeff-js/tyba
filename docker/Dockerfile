@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:14.19.3
 
 WORKDIR /app
 
@@ -12,7 +12,6 @@ ENV PATH ./node_modules/.bin:$PATH
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
-
 
 RUN npm run build
 

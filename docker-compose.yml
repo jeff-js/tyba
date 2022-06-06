@@ -1,10 +1,13 @@
 version: "3.1"
 
 services:
-  backend-db:
+  database:
     build:
       context: .
       dockerfile: ./docker/postgres.Dockerfile
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    container_name: database
     ports:
       - "5432:5432"
     environment:
@@ -13,8 +16,17 @@ services:
     restart: always
   backend:
     build:
-      context: ../
+      context: .
       dockerfile: ./docker/Dockerfile
     container_name: backend
     ports:
-        - "3000:3000"
+      - "3000:3000"
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_NAME=postgres
+      - DATABASE_PORT=5432
+
+volumes:
+  postgres_data:
